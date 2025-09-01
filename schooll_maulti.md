@@ -2,7 +2,7 @@
 
 2. Helpers/helper.php
 ``
-#install 
+#install
 composer require intervention/image:^2.7
 
 # config/app.php
@@ -97,10 +97,14 @@ if (!function_exists('cropCompressImage')) {
 
 ```
 
-## multi mark
+## Multi mark
+
+# multiCreate.blade.php
+# marksheet.blade.php
 ```php
    Route::get('marks/multi/create', [MarkController::class, 'multiCreate'])->name('mark.multiCreate');
-
+   Route::get('marks/multi/marksheet', [MarkController::class, 'marksheet'])->name('mark.marksheet');
+   
     public function multiCreate()
     {
         $exams = Exam::all();
@@ -111,7 +115,6 @@ if (!function_exists('cropCompressImage')) {
         return view('mark.multiCreate', compact('exams', 'classes', 'subjects', 'students'));
     }
 
-    Route::get('marks/multi/marksheet', [MarkController::class, 'marksheet'])->name('mark.marksheet');
     public function marksheet(Request $request)
     {
         $class_id = $request->class_id;
@@ -185,16 +188,16 @@ if (!function_exists('cropCompressImage')) {
     }
 
 ```
-# multiCreate.blade.php
-# marksheet.blade.php
+
 
 
 
 
 ## Subject
-// subject
+# multi_create.blade.php
+# student_subject_rows.blade.php
 ```php
-    # smulti_create.blade.php
+    # multi_create.blade.php
     # student_subject_rows.blade.php
 
     Route::post('student/subjects/students', [StudentSubjectController::class, 'multi_student_subject'])->name('student.subject.multi_student_subject');
@@ -292,6 +295,8 @@ if (!function_exists('cropCompressImage')) {
     }
 ```
 ## Student Create
+# multi-student.blade.php
+# create_multi_form.blade.php
 ```php
     # route
     Route::get('students/create_multi', [StudentController::class, 'create_multi'])->name('students.create_multi');
@@ -373,7 +378,8 @@ if (!function_exists('cropCompressImage')) {
 ```
 
 <!-- sidebar  -->
-vendor\crocodicstudio\crudbooster\src\views\sidebar.blade.php
+## Search this file
+# vendor\crocodicstudio\crudbooster\src\views\sidebar.blade.php
 1. student.subject.multiCreate
 2. students.create_multi
 3. student.subject.multiCreate
