@@ -1,11 +1,9 @@
 # School Management System - Marks & Students Module
-
-2. Helpers/helper.php
-``
-#install
+# install
 composer require intervention/image:^2.7
 
 # config/app.php
+```php
 'providers' => [
     ...
     Intervention\Image\ImageServiceProvider::class,
@@ -16,7 +14,10 @@ composer require intervention/image:^2.7
     'Image' => Intervention\Image\Facades\Image::class,
 ],
 
-``
+```
+
+# Helpers/helper.php
+
 ```php
 if (!function_exists('cropCompressImage')) {
     /**
@@ -104,7 +105,7 @@ if (!function_exists('cropCompressImage')) {
 ```php
    Route::get('marks/multi/create', [MarkController::class, 'multiCreate'])->name('mark.multiCreate');
    Route::get('marks/multi/marksheet', [MarkController::class, 'marksheet'])->name('mark.marksheet');
-   
+
     public function multiCreate()
     {
         $exams = Exam::all();
